@@ -2,16 +2,36 @@ version: '3.8'
 
 services:
   mysql-db:
-    image: mysql:8.0  # Use the official MySQL 8.0 image
+    image: mysql:8.0
     container_name: catalog-mysql
     environment:
-      MYSQL_ROOT_PASSWORD: my_secure_password_123 
-      MYSQL_DATABASE: CatalogDb                    # <- Automatically creates this database
+      MYSQL_ROOT_PASSWORD: my_secure_password_123
+      MYSQL_DATABASE: CatalogDb
     ports:
-      - "3306:3306"  # Maps host port 3306 to container port 3306
+      - "3306:3306"
     volumes:
-      - mysql_data:/var/lib/mysql  # Persists data even if the container is removed
+      - mysql_data:/var/lib/mysql
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  catalog-api:
+    build:
+      context: .
+      dockerfile: src/Services/Catalog/Catalog.API/Dockerfile
+    container_name: catalog-api
+    ports:
+      - "5000:5000"
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=mysql-db;Port=3306;Database=CatalogDb;Uid=root;Pwd=my_secure_password_123;
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      mysql-db:
+        condition: service_healthy
     restart: unless-stopped
 
 volumes:
-  mysql_data:  # Named volume declaration
+  mysql_data:
