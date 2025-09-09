@@ -133,7 +133,7 @@ src/
 
 - `GET /api/products` - Get all products
 
-- `ET /api/products/{id}` - Get product by ID
+- `GET /api/products/{id}` - Get product by ID
 
 - `POST /api/products` - Create new product
 
