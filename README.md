@@ -81,8 +81,7 @@ docker-compose up --build
 
 1. Restore dependencies
 
-```
-bash
+```bash
 dotnet restore
 ```
 
