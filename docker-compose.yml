@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  mysql-db:
+    image: mysql:8.0  # Use the official MySQL 8.0 image
+    container_name: catalog-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: my_secure_password_123 
+      MYSQL_DATABASE: CatalogDb                    # <- Automatically creates this database
+    ports:
+      - "3306:3306"  # Maps host port 3306 to container port 3306
+    volumes:
+      - mysql_data:/var/lib/mysql  # Persists data even if the container is removed
+    restart: unless-stopped
+
+volumes:
+  mysql_data:  # Named volume declaration
