@@ -52,11 +52,12 @@ A distributed e-commerce backend system built with .NET 8, featuring a microserv
 - Docker Desktop
 - Git
 
-  **Installation**
+**Installation**
 
 1. Clone the repository
 
 ```
+bash
 git clone https://github.com/your-username/ECommerceMicroservices.git
 cd ECommerceMicroservices
 ```
