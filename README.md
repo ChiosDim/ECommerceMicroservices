@@ -1,178 +1,204 @@
-🛍️ E-Commerce Microservices Platform
-A distributed e-commerce backend system built with .NET 8, featuring a microservices architecture, Docker containerization, and modern development practices.
+🛍️ **E-Commerce Microservices Platform**
 
-✨ Features
-*🔧 Microservices Architecture - Clean separation with API, Domain, and Infrastructure layers
+  A distributed e-commerce backend system built with .NET 8, featuring a microservices architecture, Docker containerization, and modern development practices.
 
-*🔐 JWT Authentication - Secure user authentication and authorization system
+🚀 **Features**
+  * Microservices Architecture: Clean separation of concerns with API, Domain, and Infrastructure layers
+  
+  * JWT Authentication: Secure user authentication and authorization
+  
+  * Entity Framework Core: Database management with MySQL and automatic migrations
+  
+  * Docker Containerization: Full containerization of API and database services
+  
+  * Clean Architecture: Professional project structure following industry best practices
+  
+  * RESTful API: Full CRUD operations with proper HTTP status codes and validation
+  
+  * Swagger/OpenAPI: Interactive API documentation
 
-🗄️ Entity Framework Core - Database management with MySQL and automatic migrations
+🏗️ **Architecture**
 
-🐳 Docker Containerization - Full containerization of API and database services
+    ECommerceMicroservices/
+    ├── Catalog.API/          # Web API (Entry Point)
+    ├── Catalog.Domain/       # Business Logic & Contracts
+    ├── Catalog.Infrastructure/ # Data Access & Implementations
+    └── docker-compose.yml    # Multi-container orchestration
 
-🏗️ Clean Architecture - Professional project structure following industry best practices
+**🛠️ Technology Stack**
 
-🌐 RESTful API - Full CRUD operations with proper HTTP status codes and validation
+  * .NET 8 - Backend framework
+  
+  * Entity Framework Core 8 - ORM and data access
+  
+  * MySQL 8 - Database management
+  
+  * Docker & Docker Compose - Containerization
+  
+  * JWT Bearer Authentication - Secure authentication
+  
+  * AutoMapper - Object-object mapping
+  
+  * Swashbuckle - API documentation
+  
+  * BCrypt.Net - Password hashing
 
-📖 Swagger/OpenAPI - Interactive API documentation
+**🚀 Getting Started**
 
-🏗️ Architecture
-text
-ECommerceMicroservices/
-├── Catalog.API/ # Web API (Entry Point)
-├── Catalog.Domain/ # Business Logic & Contracts
-├── Catalog.Infrastructure/ # Data Access & Implementations
-└── docker-compose.yml # Multi-container orchestration
-🛠️ Tech Stack
-Technology Purpose
-.NET 8 Backend framework
-Entity Framework Core 8 ORM and data access
-MySQL 8 Relational database
-Docker & Docker Compose Containerization
-JWT Bearer Authentication Secure authentication
-AutoMapper Object-object mapping
-Swashbuckle API documentation
-BCrypt.Net Password hashing
-🚀 Quick Start
-Prerequisites
-.NET 8 SDK
+  **Prerequisites**
+  * .NET 8 SDK
+  * Docker Desktop
+  * Git
 
-Docker Desktop
+**Installation**
 
-Git
+  1.Clone the repository
 
-Running with Docker
-bash
+  ```
+  git clone https://github.com/your-username/ECommerceMicroservices.git
+  cd ECommerceMicroservices
+  ```
+  2. Run with Docker Compose
+  ```
+  bash
+  docker-compose up --build
+  ```
+  3. Access the application
+  * API: http://localhost:5000
 
-# Clone and run
+  * Swagger UI: http://localhost:5000/swagger
 
-git clone https://github.com/your-username/ECommerceMicroservices.git
-cd ECommerceMicroservices
-docker-compose up --build
-Access Points
-API: http://localhost:5000
+  * MySQL Database: localhost:3306
 
-📖 Swagger UI: http://localhost:5000/swagger
+**Manual Development Setup**
 
-🗄️ MySQL Database: localhost:3306
+  1. Restore dependencies
 
-📁 Project Structure
-text
-src/
-└── Services/
-└── Catalog/
-├── Catalog.API/ # Web API Layer
-│ ├── Controllers/ # API Endpoints
-│ ├── Dtos/ # Data Transfer Objects
-│ ├── Services/ # Application Services
-│ └── Program.cs # Startup Configuration
-├── Catalog.Domain/ # Domain Layer
-│ ├── Entities/ # Business Entities
-│ ├── Interfaces/ # Contracts & Abstractions
-│ └── Features/ # Feature Organization
-└── Catalog.Infrastructure/ # Infrastructure Layer
-├── Data/ # Database Context
-├── Repositories/ # Data Access Implementations
-├── Services/ # Infrastructure Services
-└── Migrations/ # Database Migrations
-📡 API Endpoints
-🔐 Authentication
-Method Endpoint Description
-POST /api/auth/register User registration
-POST /api/auth/login User login
-📦 Products Management
-Method Endpoint Description
-GET /api/products Get all products
-GET /api/products/{id} Get product by ID
-POST /api/products Create new product
-PUT /api/products/{id} Update product
-DELETE /api/products/{id} Delete product
-🐳 Docker Setup
+  ```
+  bash
+  dotnet restore
+  ```
+  2. Run database migrations
+  ```
+  bash
+  cd src/Services/Catalog/Catalog.API
+  dotnet ef database update
+  ```
+  3. Run the application
+  ```
+  bash
+  dotnet run
+```
+
+📁 **Project Structure**
+  ```
+  src/
+  ├── Services/
+  │   └── Catalog/
+  │       ├── Catalog.API/                 # Web API Project
+  │       │   ├── Controllers/             # API Endpoints
+  │       │   ├── Dtos/                    # Data Transfer Objects
+  │       │   ├── Services/                # Application Services
+  │       │   └── Program.cs               # Startup Configuration
+  │       ├── Catalog.Domain/              # Domain Layer
+  │       │   ├── Entities/                # Business Entities
+  │       │   ├── Interfaces/              # Contracts & Abstractions
+  │       │   └── Features/                # Feature Organization
+  │       └── Catalog.Infrastructure/      # Infrastructure Layer
+  │           ├── Data/                    # Database Context
+  │           ├── Repositories/            # Data Access Implementations
+  │           ├── Services/                # Infrastructure Services
+  │           └── Migrations/              # Database Migrations
+  ```
+
+🔧 **API Endpoints**
+  **Authentication**
+  * ```POST /api/auth/register``` - User registration
+  
+  * ```POST /api/auth/login``` - User login
+  
+  **Products**
+  * ```GET /api/products``` - Get all products
+  
+  * ```ET /api/products/{id}``` - Get product by ID
+  
+  * ```POST /api/products``` - Create new product
+  
+  * ```PUT /api/products/{id}``` - Update product
+  
+  * ```DELETE /api/products/{id}``` - Delete product
+
+🐳**Docker Configuration**
+
 The project includes complete Docker support:
+  
+  * Multi-container setup with API and MySQL database
+  
+  * Dockerfile for optimized .NET 8 container builds
+  
+  * docker-compose.yml for service orchestration
+  
+  * Health checks and proper service dependencies
+  
+  * Volume persistence for database data
 
-Multi-container setup with API and MySQL database
+🧪 **Testing**
 
-Optimized Dockerfile for .NET 8 applications
+Test the API using Swagger UI or curl commands:
 
-docker-compose.yml for service orchestration
-
-Health checks and service dependencies
-
-Volume persistence for database data
-
-🧪 Testing Examples
+```
 bash
-
 # Register a new user
-
 curl -X POST http://localhost:5000/api/auth/register \
- -H "Content-Type: application/json" \
- -d '{"email":"user@example.com","password":"Password123!"}'
+  -H "Content-Type: application/json" \
+  -d '{"email":"user@example.com","password":"Password123!"}'
 
 # Login and get JWT token
-
 curl -X POST http://localhost:5000/api/auth/login \
- -H "Content-Type: application/json" \
- -d '{"email":"user@example.com","password":"Password123!"}'
-🚀 Deployment Ready
-The application is prepared for deployment to:
+  -H "Content-Type: application/json" \
+  -d '{"email":"user@example.com","password":"Password123!"}'
+```
+🚀 **Deployment**
 
-Kubernetes
+The application is ready for deployment to:
 
-Docker Swarm
+* Docker Swarm
 
-Azure Container Instances
+* Kubernetes
 
-AWS ECS
+* Azure Container Instances
 
-Any Docker-supported platform
+* AWS ECS
 
-📈 Development Journey
-This project showcases a complete development lifecycle:
+* Any Docker-supported platform
 
-🎯 Project Setup - Solution structure and clean architecture
+📈 **Development Journey**
 
-📊 Domain Modeling - Entities and business contracts
+This project demonstrates the complete development lifecycle:
 
-💾 Data Access - Entity Framework Core with MySQL
+1. Project Setup - Solution structure and clean architecture
 
-🌐 API Development - RESTful endpoints with controllers
+2. Domain Modeling - Entities and business contracts
 
-🔐 Authentication - JWT-based security implementation
+3. Data Access - Entity Framework Core with MySQL
 
-🐳 Containerization - Docker setup for development and production
+4. API Development - RESTful endpoints with controllers
 
-📚 Documentation - Professional README and code comments
+5. Authentication - JWT-based security implementation
 
-🤝 Contributing
-Fork the repository
+6. Containerization - Docker setup for development and production
 
-Create a feature branch (git checkout -b feature/amazing-feature)
+7. Documentation - Professional README and code comments
 
-Commit your changes (git commit -m 'Add some amazing feature')
+🤝 **Contributing**
 
-Push to the branch (git push origin feature/amazing-feature)
+1. Fork the repository
 
-Open a Pull Request
+2. Create a feature branch (git checkout -b feature/amazing-feature)
 
-📄 License
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+3. Commit your changes (git commit -m 'Add some amazing feature')
 
-🎯 Future Roadmap
-🛒 Basket Service with Redis integration
+4.Push to the branch (git push origin feature/amazing-feature)
 
-📦 Order Service with event-driven architecture
+5. Open a Pull Request
 
-🚪 API Gateway with Ocelot
-
-🧪 Unit and Integration Tests
-
-⚙️ CI/CD Pipeline setup
-
-☸️ Kubernetes Deployment manifests
-
-📊 Monitoring and Logging solutions
-
-💳 Payment Integration
-
-✉️ Email Notifications system
