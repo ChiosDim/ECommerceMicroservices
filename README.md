@@ -1,4 +1,5 @@
 🛍️ **E-Commerce Microservices Platform**
+
   A distributed e-commerce backend system built with .NET 8, featuring a microservices architecture, Docker containerization, and modern development practices.
 
 🚀 **Features**
@@ -25,6 +26,7 @@
     └── docker-compose.yml    # Multi-container orchestration
 
 **🛠️ Technology Stack**
+
   * .NET 8 - Backend framework
   
   * Entity Framework Core 8 - ORM and data access
@@ -43,25 +45,25 @@
 
 **🚀 Getting Started**
 
-  ** Prerequisites**
+  **Prerequisites**
   * .NET 8 SDK
   * Docker Desktop
   * Git
 
 **Installation**
-  Clone the repository
+
+  1.Clone the repository
 
   ```
   git clone https://github.com/your-username/ECommerceMicroservices.git
   cd ECommerceMicroservices
-  Run with Docker Compose
   ```
-  
-  ```bash
+  2. Run with Docker Compose
+  ```
+  bash
   docker-compose up --build
-  Access the application
   ```
-
+  3. Access the application
   * API: http://localhost:5000
 
   * Swagger UI: http://localhost:5000/swagger
@@ -69,12 +71,12 @@
   * MySQL Database: localhost:3306
 
 **Manual Development Setup**
+
   1. Restore dependencies
 
   ```
   bash
   dotnet restore
-  Run database migrations
   ```
   2. Run database migrations
   ```
@@ -82,9 +84,7 @@
   cd src/Services/Catalog/Catalog.API
   dotnet ef database update
   ```
-
   3. Run the application
-
   ```
   bash
   dotnet run
@@ -113,22 +113,23 @@
 
 🔧 **API Endpoints**
   **Authentication**
-  * POST /api/auth/register - User registration
+  * ```POST /api/auth/register``` - User registration
   
-  * POST /api/auth/login - User login
+  * ```POST /api/auth/login``` - User login
   
   **Products**
-  * GET /api/products - Get all products
+  * ```GET /api/products``` - Get all products
   
-  * GET /api/products/{id} - Get product by ID
+  * ```ET /api/products/{id}``` - Get product by ID
   
-  * POST /api/products - Create new product
+  * ```POST /api/products``` - Create new product
   
-  * PUT /api/products/{id} - Update product
+  * ```PUT /api/products/{id}``` - Update product
   
-  * DELETE /api/products/{id} - Delete product
+  * ```DELETE /api/products/{id}``` - Delete product
 
-🐳** Docker Configuration**
+🐳**Docker Configuration**
+
 The project includes complete Docker support:
   
   * Multi-container setup with API and MySQL database
@@ -142,9 +143,11 @@ The project includes complete Docker support:
   * Volume persistence for database data
 
 🧪 **Testing**
+
 Test the API using Swagger UI or curl commands:
 
-```bash
+```
+bash
 # Register a new user
 curl -X POST http://localhost:5000/api/auth/register \
   -H "Content-Type: application/json" \
@@ -156,6 +159,7 @@ curl -X POST http://localhost:5000/api/auth/login \
   -d '{"email":"user@example.com","password":"Password123!"}'
 ```
 🚀 **Deployment**
+
 The application is ready for deployment to:
 
 * Docker Swarm
@@ -169,6 +173,7 @@ The application is ready for deployment to:
 * Any Docker-supported platform
 
 📈 **Development Journey**
+
 This project demonstrates the complete development lifecycle:
 
 1. Project Setup - Solution structure and clean architecture
@@ -186,6 +191,7 @@ This project demonstrates the complete development lifecycle:
 7. Documentation - Professional README and code comments
 
 🤝 **Contributing**
+
 1. Fork the repository
 
 2. Create a feature branch (git checkout -b feature/amazing-feature)
