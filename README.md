@@ -56,16 +56,14 @@ A distributed e-commerce backend system built with .NET 8, featuring a microserv
 
 1. Clone the repository
 
-```
-bash
+```bash
 git clone https://github.com/your-username/ECommerceMicroservices.git
 cd ECommerceMicroservices
 ```
 
 2. Run with Docker Compose
 
-```
-bash
+```bash
 docker-compose up --build
 ```
 
@@ -87,16 +85,14 @@ dotnet restore
 
 2. Run database migrations
 
-```
-bash
+```bash
 cd src/Services/Catalog/Catalog.API
 dotnet ef database update
 ```
 
 3. Run the application
 
-```
-bash
+```bash
 dotnet run
 ```
 
@@ -159,8 +155,7 @@ The project includes complete Docker support:
 
 Test the API using Swagger UI or curl commands:
 
-```
-bash
+```bash
 # Register a new user
 curl -X POST http://localhost:5000/api/auth/register \
   -H "Content-Type: application/json" \
